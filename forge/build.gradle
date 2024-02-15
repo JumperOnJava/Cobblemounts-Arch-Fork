@@ -1,5 +1,6 @@
 plugins {
     id "com.github.johnrengelman.shadow" version "7.1.2"
+    id("org.jetbrains.kotlin.jvm") version "1.9.22"
 }
 architectury {
     platformSetupLoomIde()
@@ -15,9 +16,8 @@ configurations {
 }
 repositories{
     mavenCentral()
-    maven {
-        url = "https://maven.impactdev.net/repository/development/"
-    }
+
+    maven { url = "https://maven.impactdev.net/repository/development/" }
 
     maven { url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
 
@@ -35,7 +35,7 @@ dependencies {
     modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
 
     modImplementation "thedarkcolour:kotlinforforge:4.5.0"
-    modImplementation "com.cobblemon:forge:1.4.0+1.20.1-SNAPSHOT"
+    modImplementation "com.cobblemon:forge:1.4.1+1.20.1-SNAPSHOT"
     forgeRuntimeLibrary 'com.moandjiezana.toml:toml4j:0.7.2'
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }

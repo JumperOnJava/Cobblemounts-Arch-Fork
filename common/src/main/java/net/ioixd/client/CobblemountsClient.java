@@ -1,5 +1,6 @@
 package net.ioixd.client;
 
+import com.cobblemon.mod.common.entity.pokemon.ai.PokemonMoveControl;
 import dev.architectury.networking.NetworkManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.ioixd.Cobblemounts;
@@ -13,6 +14,7 @@ public class CobblemountsClient{
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static Config SYNCED_CONFIG = new Config();
     public static void onInitializeClient() {
+
         NetworkManager.registerReceiver(NetworkManager.Side.S2C,Cobblemounts.CONFIG_SYNC_ID, CobblemountsClient::onSyncPacket);
     }
     private static void onSyncPacket(PacketByteBuf buf, NetworkManager.PacketContext packetContext) {
